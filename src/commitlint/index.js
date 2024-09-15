@@ -1,4 +1,4 @@
 // @ts-check
 
-export * from './default'
-export * from './pnpm-workspace-scopes'
+export * from './default.js'
+export * from './pnpm-workspace-scopes.js'

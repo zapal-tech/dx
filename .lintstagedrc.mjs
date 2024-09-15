@@ -1,3 +1,4 @@
-import { buildLintStagedConfig } from './src/lint-staged/build'
-
-export default buildLintStagedConfig()
+export default {
+  '*.{json,html,md}': 'prettier --write',
+  '*.{js,ts}': ['prettier --write', 'eslint'],
+}

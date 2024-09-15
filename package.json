@@ -34,7 +34,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && for tool in prettier eslint commitlint lint-staged; do pnpm run build:$tool; done && copyfiles src/typescript package.json dist",
+    "build": "rimraf dist && for tool in prettier eslint commitlint; do pnpm run build:$tool; done && copyfiles src/typescript package.json dist",
     "build:commitlint": "tsup src/commitlint/index.js --out-dir dist/commitlint --target es2020 --format esm --sourcemap",
     "build:eslint": "tsup src/eslint/index.js --out-dir dist/eslint --target es2020 --format esm --sourcemap",
     "build:lint-staged": "tsup src/lint-staged/index.js --out-dir dist/lint-staged --target es2020 --format esm --sourcemap",
@@ -47,8 +47,8 @@
     "dev:typescript": "pnpm build:typescript --watch",
     "lint": "eslint src",
     "prepack": "pnpm lint && pnpm build",
-    "prepublishOnly": "changeset version && changeset publish",
-    "prepare": "husky"
+    "prepare": "node ./scripts/prepare",
+    "prepublishOnly": "changeset version && changeset publish"
   },
   "dependencies": {
     "@commitlint/config-conventional": "^19.5.0",

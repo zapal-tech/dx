@@ -1,6 +1,6 @@
 // @ts-check
 
-import { defaultPrettierConfig } from './default'
+import { defaultPrettierConfig } from './default.js'
 
 /** @type {import('prettier').Config} */
 export const sveltePrettierConfig = {

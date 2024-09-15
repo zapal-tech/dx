@@ -1,4 +1,4 @@
 // @ts-check
 
-export * from './default'
-export * from './svelte'
+export * from './default.js'
+export * from './svelte.js'

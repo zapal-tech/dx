@@ -3,8 +3,9 @@
 import svelte from 'eslint-plugin-svelte'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
+import ts from 'typescript-eslint'
 
-import { defaultESLintConfig } from './default'
+import { defaultESLintConfig } from './default.js'
 
 /** @type {import('eslint').Linter.Config[]} */
 export const svelteESLintConfig = [

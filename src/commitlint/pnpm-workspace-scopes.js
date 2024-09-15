@@ -1,6 +1,6 @@
 // @ts-check
 
-import { defaultCommitlintConfig } from './default'
+import { defaultCommitlintConfig } from './default.js'
 
 /** @type {import('@commitlint/types').UserConfig} */
 export const pnpmWorkspaceScopesCommitlintConfig = {
