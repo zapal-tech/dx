@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Svelte",
+  "extends": "./default.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
+  }
+}
