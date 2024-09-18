@@ -35,11 +35,9 @@ jobs:
         run: pnpm i
 
       - name: Build package
-        id: build
         run: pnpm build
 
       - name: Lint
-        needs: build
         run: pnpm lint
 
       - name: Setup Git user
