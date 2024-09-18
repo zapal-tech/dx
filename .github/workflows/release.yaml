@@ -13,6 +13,8 @@ jobs:
 
     permissions:
       id-token: write
+      contents: write
+      pull-requests: write
 
     runs-on: ubuntu-latest
 
@@ -41,8 +43,8 @@ jobs:
 
       - name: Setup Git user
         run: |
-          git config --global user.name "Zapal"
-          git config --global user.email "hello@zapal.tech"
+          git config user.name "Zapal"
+          git config user.email "hello@zapal.tech"
 
       - name: Create Release PR / Publish to npm
         id: changesets
