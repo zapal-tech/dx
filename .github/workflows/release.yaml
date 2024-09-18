@@ -32,14 +32,15 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        id: install-deps
         run: pnpm i
 
-      - name: Lint
-        run: pnpm lint
-
       - name: Build package
+        id: build
         run: pnpm build
+
+      - name: Lint
+        needs: build
+        run: pnpm lint
 
       - name: Setup Git user
         run: |
