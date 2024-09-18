@@ -1,6 +1,6 @@
 {
   "name": "@zapal/dx",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Zapal development experience. Set of code quality tools configurations, rule sets and utilities. Prettier, ESLint, TypeScript, Lint-Staged, etc.",
   "keywords": [
     "zapal",
