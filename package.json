@@ -47,7 +47,7 @@
     "dev:typescript": "pnpm build:typescript --watch",
     "lint": "eslint src",
     "prepare": "node ./scripts/prepare",
-    "release": "pnpm lint && pnpm build"
+    "release": "changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.8",

@@ -5,32 +5,25 @@ on:
     branches:
       - main
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Release package
 
     permissions:
-      contents: read
       id-token: write
 
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        id: checkout
         uses: actions/checkout@v4
 
-      - name: Set Git user
-        run: |
-          git config --global user.name "Zapal Bot"
-          git config --global user.email "hello@zapal.tech"
-
       - name: Install pnpm
-        id: install-pnpm
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        id: install-node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -40,10 +33,22 @@ jobs:
         id: install-deps
         run: pnpm i
 
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build package
+        run: pnpm build
+
+      - name: Setup Git user
+        run: |
+          git config --global user.name "Zapal"
+          git config --global user.email "hello@zapal.tech"
+
       - name: Create Release PR / Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
+          setupGitUser: false
           publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
