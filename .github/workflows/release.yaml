@@ -39,9 +39,16 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Creating .npmrc with token
+      run: |
+        cat << EOF > "$HOME/.npmrc"
+          //registry.npmjs.org/:_authToken=$NPM_TOKEN
+        EOF
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
       - name: Publish to npm
         run: pnpm publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
