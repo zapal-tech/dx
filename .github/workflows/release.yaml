@@ -50,6 +50,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          commit: 'ci: release new version'
           setupGitUser: false
           publish: pnpm release
         env:
