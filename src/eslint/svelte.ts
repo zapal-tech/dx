@@ -1,14 +1,12 @@
-// @ts-check
-
 import svelte from 'eslint-plugin-svelte'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
 import ts from 'typescript-eslint'
 
-import { defaultESLintConfig } from './default.js'
+import { defaultESLintConfig } from './default'
+import type { Linter } from 'eslint'
 
-/** @type {import('eslint').Linter.Config[]} */
-export const svelteESLintConfig = [
+export const svelteESLintConfig: Linter.Config[] = [
   ...defaultESLintConfig,
   ...svelte.configs['flat/recommended'],
   prettier,

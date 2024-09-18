@@ -1,1 +1,1 @@
-export { defaultPrettierConfig as default } from './src/prettier/default.js'
+export { defaultPrettierConfig as default } from './dist/prettier/index.js'

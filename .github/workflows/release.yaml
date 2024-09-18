@@ -46,13 +46,8 @@ jobs:
           git config user.name "Zapal"
           git config user.email "hello@zapal.tech"
 
-      - name: Create Release PR / Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          commit: 'ci: release new version'
-          setupGitUser: false
-          publish: pnpm release
+      - name: Publish to npm
+        run: pnpm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

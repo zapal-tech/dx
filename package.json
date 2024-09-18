@@ -30,15 +30,22 @@
     "url": "https://www.zapal.tech"
   },
   "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.cjs"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rimraf dist && for tool in prettier eslint commitlint; do pnpm run build:$tool; done && copyfiles -f src/typescript/* dist/typescript",
-    "build:commitlint": "tsup src/commitlint/index.js --out-dir dist/commitlint --target es2020 --format esm --sourcemap",
-    "build:eslint": "tsup src/eslint/index.js --out-dir dist/eslint --target es2020 --format esm --sourcemap",
-    "build:lint-staged": "tsup src/lint-staged/index.js --out-dir dist/lint-staged --target es2020 --format esm --sourcemap",
-    "build:prettier": "tsup src/prettier/index.js --out-dir dist/prettier --target es2020 --format esm --sourcemap",
+    "build:commitlint": "tsup src/commitlint/index.ts --out-dir dist/commitlint --format esm,cjs --dts",
+    "build:eslint": "tsup src/eslint/index.ts --out-dir dist/eslint --format esm,cjs --dts",
+    "build:lint-staged": "tsup src/lint-staged/index.ts --out-dir dist/lint-staged --format esm,cjs --dts",
+    "build:prettier": "tsup src/prettier/index.ts --out-dir dist/prettier --format esm,cjs --dts",
     "build:typescript": "tsup -i 'src/typescript --out-dir dist/typescript'",
     "dev:commitlint": "pnpm build:commitlint --watch",
     "dev:eslint": "pnpm build:eslint --watch",
@@ -46,33 +53,32 @@
     "dev:prettier": "pnpm build:prettier --watch",
     "dev:typescript": "pnpm build:typescript --watch",
     "lint": "eslint src",
-    "prepare": "node ./scripts/prepare",
-    "release": "changeset publish"
+    "prepare": "node ./scripts/prepare"
   },
   "dependencies": {
-    "@changesets/cli": "^2.27.8",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/config-pnpm-scopes": "^19.5.0",
     "@eslint/js": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.44",
+    "eslint-plugin-svelte": "^2.44.0",
     "globals": "^15.9.0",
     "prettier-plugin-packagejson": "^2.5.2",
     "prettier-plugin-svelte": "^3.2.6",
-    "typescript-eslint": "^8.5.0"
+    "typescript-eslint": "^8.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/types": "^19.5.0",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint__js": "^8.42.3",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
     "copyfiles": "^2.4.1",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
-    "tsup": "^8.2.4",
-    "typescript": "^5.4.5"
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
   },
   "peerDependencies": {
     "@commitlint/cli": ">=19 <20",

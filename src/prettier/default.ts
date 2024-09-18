@@ -1,7 +1,6 @@
-// @ts-check
+import type { Config } from 'prettier'
 
-/** @type {import('prettier').Config} */
-export const defaultPrettierConfig = {
+export const defaultPrettierConfig: Config = {
   printWidth: 130,
   useTabs: false,
   tabWidth: 2,
