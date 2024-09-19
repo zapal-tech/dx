@@ -1,2 +1,6 @@
 node_modules
 dist
+/commitlint
+/eslint
+/prettier
+/typescript

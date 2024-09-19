@@ -1,1 +1,1 @@
-export { pnpmWorkspaceScopesCommitlintConfig as default } from './dist/commitlint/index.js'
+export { default } from './commitlint/index.js'

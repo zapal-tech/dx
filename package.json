@@ -1,7 +1,7 @@
 {
   "name": "@zapal/dx",
-  "version": "0.1.1",
-  "description": "Zapal development experience. Set of code quality tools configurations, rule sets and utilities. Prettier, ESLint, TypeScript, Lint-Staged, etc.",
+  "version": "0.1.2",
+  "description": "Zapal DX. Set of code quality tools configurations, rule sets and utilities. Prettier, ESLint, TypeScript, Commitlint, etc.",
   "keywords": [
     "zapal",
     "dx",
@@ -31,30 +31,27 @@
   },
   "type": "module",
   "exports": {
-    "./*": {
-      "types": "./dist/*/index.d.ts",
-      "import": "./dist/*/index.js",
-      "require": "./dist/*/index.cjs"
-    }
+    "./commitlint": "./commitlint/index.js",
+    "./eslint": "./eslint/index.js",
+    "./prettier": "./prettier/index.js",
+    "./typescript": "./typescript/default.tsconfig.json",
+    "./typescript/next": "./typescript/next.tsconfig.json",
+    "./typescript/svelte": "./typescript/svelte.tsconfig.json"
   },
   "files": [
-    "dist"
+    "commitlint",
+    "eslint",
+    "prettier",
+    "typescript"
   ],
   "scripts": {
-    "build": "rimraf dist && for tool in prettier eslint commitlint; do pnpm run build:$tool; done && copyfiles -f src/typescript/* dist/typescript",
-    "build:commitlint": "tsup src/commitlint/index.ts --out-dir dist/commitlint --format esm,cjs --dts",
-    "build:eslint": "tsup src/eslint/index.ts --out-dir dist/eslint --format esm,cjs --dts",
-    "build:lint-staged": "tsup src/lint-staged/index.ts --out-dir dist/lint-staged --format esm,cjs --dts",
-    "build:prettier": "tsup src/prettier/index.ts --out-dir dist/prettier --format esm,cjs --dts",
-    "build:typescript": "tsup -i 'src/typescript --out-dir dist/typescript'",
-    "dev:commitlint": "pnpm build:commitlint --watch",
-    "dev:eslint": "pnpm build:eslint --watch",
-    "dev:lint-staged": "pnpm build:lint-staged --watch",
-    "dev:prettier": "pnpm build:prettier --watch",
-    "dev:typescript": "pnpm build:typescript --watch",
+    "build": "pnpm copy:typescript && tsup",
+    "copy:typescript": "copyfiles -f src/typescript/* typescript",
+    "dev": "pnpm copy:typescript && tsup --watch src",
     "lint": "eslint src",
     "prepare": "node ./scripts/prepare"
   },
+  "prettier": "./prettier/index.js",
   "dependencies": {
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/config-pnpm-scopes": "^19.5.0",
@@ -83,7 +80,6 @@
   "peerDependencies": {
     "@commitlint/cli": ">=19 <20",
     "eslint": ">=9 <10",
-    "lint-staged": ">=15 <16",
     "prettier": ">=3 <4",
     "typescript": ">=4.8.0 <6"
   },
@@ -92,9 +88,6 @@
       "optional": true
     },
     "eslint": {
-      "optional": true
-    },
-    "lint-staged": {
       "optional": true
     },
     "prettier": {
