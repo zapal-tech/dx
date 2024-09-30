@@ -47,27 +47,29 @@ subdirectories.
 
 Using the default configuration:
 
-```json
+<!-- prettier-ignore-start -->
+```json5
 // package.json
 {
   "prettier": "@zapal/dx/prettier"
 }
 ```
+<!-- prettier-ignore-end -->
 
 ```js
-// .prettierrc.mjs
+// .prettierrc.js or .prettierrc.mjs
 export { default } from '@zapal/dx/prettier'
 ```
 
 ```js
-// .prettierrc.mjs
+// .prettierrc.js or .prettierrc.mjs
 export { sveltePrettierConfig as default } from '@zapal/dx/prettier'
 ```
 
 Using the configuration with some custom options:
 
 ```js
-// .prettierrc.mjs
+// .prettierrc.js or .prettierrc.mjs
 import { defaultPrettierConfig } from '@zapal/dx/prettier'
 
 export default {
@@ -80,23 +82,32 @@ export default {
 
 Principle is the same as for Prettier.
 
-```json
+<!-- prettier-ignore-start -->
+```json5
 // package.json
 {
   "eslintConfig": "@zapal/dx/eslint"
 }
 ```
+<!-- prettier-ignore-end -->
 
 ```js
-// eslint.config.mjs
+// eslint.config.js or eslint.config.mjs
 export { default } from '@zapal/dx/eslint'
 ```
 
 ### TypeScript
 
+Available exports:
+
+- `@zapal/dx/typescript` - default configuration
+- `@zapal/dx/typescript/next` - configuration for Next.js
+- `@zapal/dx/typescript/svelte` - configuration for Svelte-based projects
+
 Using the default configuration:
 
-```json
+<!-- prettier-ignore-start -->
+```json5
 // tsconfig.json
 {
   "extends": "@zapal/dx/typescript"
@@ -105,32 +116,43 @@ Using the default configuration:
 
 Using the configuration for Next.js, for example:
 
-```json
+```json5
 // tsconfig.json
 {
   "extends": "@zapal/dx/typescript/next"
 }
 ```
+<!-- prettier-ignore-end -->
 
 ### Commitlint
 
+**IMPORTANT**: Unfortunately, the `commitlint` requires you to install extended dependencies directly in your project. Use
+`devDependencies` for that.
+
+Here is the list of the required `devDependencies` for the configurations:
+
+- Default - `@commitlint/config-conventional`
+- PNPM Workspace scopes - `@commitlint/config-conventional` and `@commitlint/config-pnpm-scopes`
+
 Using the default configuration:
 
-```json
+<!-- prettier-ignore-start -->
+```json5
 // .commitlintrc.json
 {
   "extends": ["@zapal/dx/commitlint"]
 }
 ```
+<!-- prettier-ignore-end -->
 
 ```js
-// commitlint.config.mjs
+// commitlint.config.js or commitlint.config.mjs
 export { default } from '@zapal/dx/commitlint'
 ```
 
 Using the configuration with configuration for PNPM Workspace based scopes:
 
 ```js
-// commitlint.config.mjs
+// commitlint.config.js or commitlint.config.mjs
 export { pnpmWorkspaceScopesCommitlintConfig as default } from '@zapal/dx/commitlint'
 ```

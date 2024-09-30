@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["Commitlint"]
+  "cSpell.words": ["Commitlint"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
