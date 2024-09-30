@@ -101,8 +101,9 @@ export { default } from '@zapal/dx/eslint'
 Available exports:
 
 - `@zapal/dx/typescript` - default configuration
-- `@zapal/dx/typescript/next` - configuration for Next.js
-- `@zapal/dx/typescript/svelte` - configuration for Svelte-based projects
+- `@zapal/dx/typescript/next` - configuration for Next.js, extending the default configuration
+- `@zapal/dx/typescript/svelte` - configuration for Svelte-based projects, extending the default configuration
+- `@zapal/dx/typescript/payload` - configuration for Svelte-based projects, extending the Next.js configuration
 
 Using the default configuration:
 

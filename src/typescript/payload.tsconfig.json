@@ -1,0 +1,10 @@
+{
+  "display": "Payload CMS",
+  "extends": "./next.tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@payload-config": ["payload.config.ts"]
+    }
+  }
+}

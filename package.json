@@ -1,6 +1,6 @@
 {
   "name": "@zapal/dx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Zapal DX. Set of code quality tools configurations, rule sets and utilities. Prettier, ESLint, TypeScript, Commitlint, etc.",
   "keywords": [
     "zapal",
@@ -36,6 +36,7 @@
     "./prettier": "./prettier/index.js",
     "./typescript": "./typescript/default.tsconfig.json",
     "./typescript/next": "./typescript/next.tsconfig.json",
+    "./typescript/payload": "./typescript/payload.tsconfig.json",
     "./typescript/svelte": "./typescript/svelte.tsconfig.json"
   },
   "files": [
