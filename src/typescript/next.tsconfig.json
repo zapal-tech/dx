@@ -4,6 +4,7 @@
   "extends": "./default.tsconfig.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "allowJs": true,

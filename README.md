@@ -45,6 +45,31 @@ subdirectories.
 
 ### Prettier
 
+Prettier configurations use `prettier-plugin-packagejson` and `@ianvs/prettier-plugin-sort-imports` plugins by default.
+
+- `prettier-plugin-packagejson` is used to format `package.json` files and does not require any additional configuration.
+- `@ianvs/prettier-plugin-sort-imports` is used to sort imports in TS/JS/React/Vue/Svelte files. It may require an additional
+  configuration to provide the best development experience. Check the
+  [plugin's documentation](https://www.npmjs.com/package/@ianvs/prettier-plugin-sort-imports) for more information.
+
+The default configuration for `@ianvs/prettier-plugin-sort-imports` is:
+
+```json
+{
+  "importOrderTypeScriptVersion": "5.0.0",
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "^(@zapal)(/.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^[.]",
+    "",
+    "^(?!.*[.]css$)[./].*$",
+    ".css$"
+  ]
+}
+```
+
 Using the default configuration:
 
 <!-- prettier-ignore-start -->

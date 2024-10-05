@@ -15,5 +15,18 @@ export const defaultPrettierConfig: Config = {
   proseWrap: 'always',
   endOfLine: 'lf',
   singleAttributePerLine: false,
-  plugins: ['prettier-plugin-packagejson'],
+  plugins: ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'],
+
+  // Sort imports
+  importOrderTypeScriptVersion: '5.0.0',
+  importOrder: [
+    '<BUILTIN_MODULES>',
+    '^(@zapal)(/.*)$',
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '^[.]',
+    '',
+    '^(?!.*[.]css$)[./].*$',
+    '.css$',
+  ],
 }
