@@ -1,6 +1,6 @@
 {
   "name": "@zapal/dx",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Zapal DX. Set of code quality tools configurations, rule sets and utilities. Prettier, ESLint, TypeScript, Commitlint, etc.",
   "keywords": [
     "zapal",
@@ -47,6 +47,7 @@
   ],
   "scripts": {
     "build": "pnpm copy:typescript && tsup",
+    "check-updates": "pnpx taze major -r",
     "copy:typescript": "copyfiles -f src/typescript/* typescript",
     "dev": "pnpm copy:typescript && tsup --watch src",
     "lint": "eslint src",
