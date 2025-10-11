@@ -1,4 +1,8 @@
 {
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/.turbo/": true
+  },
   "cSpell.words": ["Commitlint"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

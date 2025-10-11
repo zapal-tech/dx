@@ -17,6 +17,8 @@ export const defaultPrettierConfig: Config = {
   singleAttributePerLine: false,
   plugins: ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'],
 
+  overrides: [{ files: '*.jsonc', options: { trailingComma: 'none' } }],
+
   // Sort imports
   importOrderTypeScriptVersion: '5.0.0',
   importOrder: [
