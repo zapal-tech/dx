@@ -12,7 +12,7 @@ Tools for which configurations are provided:
 - Prettier (`>=3 <4`)
 - ESLint (`>=9 <10`)
 - TypeScript (`>=4.8.0 <6`)
-- Commitlint (`>=19 <20`)
+- Commitlint (`>=19 <21`)
 
 _P.S.: The configurations by default may not suit your needs. You can extend them or override them with your own configurations_.
 
